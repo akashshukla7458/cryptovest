@@ -5,7 +5,7 @@ import Homepage from './pages/Homepage';
 import Coinpage from './pages/Coinpage';
 import Header from './components/Header';
 import { makeStyles } from "@material-ui/core";
-
+import Alert from './components/Alert'
 
 //makestyle from mui
 const useStyles = makeStyles(() => ({
@@ -25,6 +25,7 @@ function App() {
         <Route path="/" component={Homepage} exact />
         <Route path="/coins/:id" component={Coinpage} />
       </div>
+      <Alert/>
     </BrowserRouter>
 
 

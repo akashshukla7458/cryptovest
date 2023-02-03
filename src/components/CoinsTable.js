@@ -26,9 +26,17 @@ const useStyles = makeStyles({
 
     pagination: {
         "& .MuiPaginationItem-root": {
-            color: "gold",
+            color: "#3dbfb0",
         },
     },
+
+    customTypography: {
+        margin: 18,
+        fontFamily: "Montserrat",
+        textTransform: "uppercase",
+        letterSpacing: 2,
+
+    }
 })
 
 
@@ -42,12 +50,11 @@ export function numberWithCommas(x) {
 
 function CoinsTable() {
 
-    const [coins, setCoins] = useState([]);
-    const [loading, setLoading] = useState(false);
+
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
 
-    const { currency, symbol } = CryptoState   // from context api
+    const { currency, symbol, coins, loading, fetchCoins } = CryptoState()   // from context api
 
 
     const classes = useStyles();
@@ -66,12 +73,7 @@ function CoinsTable() {
 
 
     // fetching coinlist from api
-    const fetchCoins = async () => {
-        setLoading(true);
-        const { data } = await axios.get(CoinList(currency))
-        setCoins(data);
-        setLoading(false);
-    }
+
     // console.log(coins);
 
     useEffect(() => {
@@ -83,7 +85,7 @@ function CoinsTable() {
 
     // handle search
     const handleSearch = () => {
-        return coins.filter((coins) => coins.name.toLowerCase().includes(search) || coins.symbol.toLowerCase().includes(search))
+        return coins.filter((coin) => coin.name.toLowerCase().includes(search) || coin.symbol.toLowerCase().includes(search))
     }
 
 
@@ -93,13 +95,13 @@ function CoinsTable() {
         // theme Provider
         <ThemeProvider theme={darkTheme}>
             <Container style={{ textAlign: "center" }}>
-                <Typography variant="h4" style={{ margin: 18, fontFmaily: "Montserrat" }}>
-                    Cryptocurrency Proces by Market Cap
+                <Typography variant="h5" className={classes.customTypography}>
+                    Empowering you to navigate the crypto world with confidence.
                 </Typography>
 
                 <TextField
-                    label="Search For a Crypto Currency....."
-                    variant="outlined" style={{ marginBottom: 20, width: "100%" }} onChange={(e) => setSearch(e.target.value)}
+                    label="Search For a Crypto Currency"
+                    variant="outlined" style={{ marginBottom: 10, width: "100%",fontFamily: "Montserrat", }} onChange={(e) => setSearch(e.target.value)}
                 />
 
 
@@ -111,7 +113,7 @@ function CoinsTable() {
                         // if no loading then show table
 
                         <Table aria-label="simple table">
-                            <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+                            <TableHead style={{ backgroundColor: "#3dbfb0" }}>
                                 <TableRow>
 
                                     {/* mapping table */}
@@ -123,7 +125,7 @@ function CoinsTable() {
                                                 color: "black", fontWeight: "700", fontFamily: "Montserrat",
                                             }}
                                             key={head}
-                                            align={head === "Coin" ? "" : "right"}
+                                            align={head === "Coins" ? "" : "right"}
                                         >
                                             {head}
                                         </TableCell>
@@ -181,7 +183,7 @@ function CoinsTable() {
                                                     </div>
                                                 </TableCell>
 
-                                                 {/* prices in 2nd col  */}
+                                                {/* prices in 2nd col  */}
 
 
                                                 <TableCell align="right">
@@ -189,7 +191,7 @@ function CoinsTable() {
                                                     {numberWithCommas(row.current_price.toFixed(2))}
                                                 </TableCell>
 
-                                                
+
                                                 <TableCell
                                                     align="right"
                                                     style={{
@@ -218,7 +220,7 @@ function CoinsTable() {
                 </TableContainer>
 
                 <Pagination
-                    count={(handleSearch()?.length / 10).toFixed(0)}
+                    count={parseInt((handleSearch()?.length / 10).toFixed(0))}
                     style={{
                         padding: 20,
                         width: "100%",

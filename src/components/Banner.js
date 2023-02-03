@@ -4,7 +4,9 @@ import Carousel from './Carousel';
 
 const useStyles = makeStyles(() => ({
     banner: {
-        backgroundImage: "url(./back.jpg)"
+        backgroundImage: "url(./back2.jpg)",
+        backgroundAttachment:"fixed"
+
     },
     bannerContent: {
         height: 400,
@@ -49,8 +51,7 @@ function Banner() {
                             textTransform: "capitalize",
                             fontFamily: "Montserrat",
                         }}>
-                        Get all the Info regarding your favorite Crypto Currency
-
+                       Your One-Stop Crypto Solution
                     </Typography>
                 </div>
                 <Carousel />
