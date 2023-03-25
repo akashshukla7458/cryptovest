@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { CryptoState } from '../CryptoContext';
 import Authmodal from '../authentication/Authmodal';
 import UserSidebar from '../authentication/UserSidebar';
+import "../"
 
 // mui styles
 const useStyles = makeStyles(() => ({
@@ -34,14 +35,16 @@ function Header() {
   const classes = useStyles()
   const history = useHistory();  // form router dom
 
-  const { currency, setCurrency,user } = CryptoState();
+  const { currency, setCurrency, user } = CryptoState();
 
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color="transparent" position="static">
-        <Container>
+      
           <Toolbar>
-            <Typography onClick={() => history.push("/")} className={classes.title}>
+
+            <Typography onClick={() => history.push("/")} className={classes.title} style={{display:"flex", alignContent:"left"}}>
+              <img src="bitcoin.png" alt="Crypto Vest Logo" style={{ marginRight: "10px" ,width:"25px", height:"25px" }} />
               Crypto Vest
             </Typography>
             <Select
@@ -56,7 +59,7 @@ function Header() {
 
 
           </Toolbar>
-        </Container>
+
 
       </AppBar>
     </ThemeProvider>

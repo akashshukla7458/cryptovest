@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     carousel: {
         height: "50%",
         display: "flex",
-        alignItme: "center"
+        alignItme: "center",
+       
 
     },
     carouselItem: {
@@ -19,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
         cursor: "pointer",
         textTransform: "uppercase",
         color: "white",
-        alignItems: "center"
+        alignItems: "center",
+        marginBottom:"20px"
     }
 }))
 

@@ -29,12 +29,13 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     marginTop: 25,
-    borderRight: "2px solid grey",
+    borderRight: "2px solid white",
   },
   heading: {
     fontWeight: "bold",
     marginBottom: 20,
     fontFamily: "Montserrat",
+    color:"white"
   },
   description: {
     width: "100%",
@@ -43,12 +44,14 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 15,
     paddingTop: 0,
     textAlign: "justify",
+    color:"white"
   },
   marketData: {
     alignSelf: "start",
     padding: 25,
     paddingTop: 10,
     width: "100%",
+    color:"white",
     [theme.breakpoints.down("md")]: {
       display: "flex",
       justifyContent: "space-around",
