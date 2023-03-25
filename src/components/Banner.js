@@ -3,16 +3,12 @@ import React from 'react'
 import Carousel from './Carousel';
 
 const useStyles = makeStyles(() => ({
-    banner: {
-        backgroundImage: "url(./back2.jpg)",
-        backgroundAttachment:"fixed"
 
-    },
     bannerContent: {
-        height: 400,
+        height: 300,
         display: "flex",
         flexDirection: "column",
-        paddingTop: "25",
+        paddingTop: "20",
         justifyContent: "space-around"
     },
     tagline: {
@@ -32,16 +28,20 @@ const useStyles = makeStyles(() => ({
 function Banner() {
     const classes = useStyles();
     return (
-        <div className={classes.banner}>
+        <div >
             <Container className={classes.bannerContent}>
                 <div className={classes.tagline}>
-                    <Typography variant="h2"
+                    <Typography variant="h1"
                         style={{
-                            fontWeight: "bold",
+                            // fontWeight: "bold",
+
                             marginBottom: 15,
                             fontFamily: "Montserrat",
+                            background: "linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)",
+                            "WebkitBackgroundClip": "text",
+                            "WebkitTextFillColor": "transparent",
                         }}>
-                        CryptoVest
+                        CRYPTOVEST
 
                     </Typography>
                     <Typography
@@ -50,13 +50,17 @@ function Banner() {
                             color: "darkgrey",
                             textTransform: "capitalize",
                             fontFamily: "Montserrat",
+                            fontWeight: "bolder"
                         }}>
-                       Your One-Stop Crypto Solution
+                        Your One-Stop Crypto Solution
                     </Typography>
                 </div>
-                <Carousel />
+
             </Container>
+            <Carousel />
         </div>
+
+
     )
 }
 

@@ -27,7 +27,9 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 0,
         padding: 20,
         paddingTop: 0,
+      
       },
+   
     },
   }));
 
@@ -109,6 +111,7 @@ const CoinInfo = ({coin}) => {
                 marginTop: 20,
                 justifyContent: "space-around",
                 width: "100%",
+             
               }}
             >
               {chartDays.map((day) => (

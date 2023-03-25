@@ -94,14 +94,14 @@ function CoinsTable() {
 
         // theme Provider
         <ThemeProvider theme={darkTheme}>
-            <Container style={{ textAlign: "center" }}>
+            <Container style={{ textAlign: "center" ,color:"white" }}>
                 <Typography variant="h5" className={classes.customTypography}>
                     Empowering you to navigate the crypto world with confidence.
                 </Typography>
 
                 <TextField
                     label="Search For a Crypto Currency"
-                    variant="outlined" style={{ marginBottom: 10, width: "100%",fontFamily: "Montserrat", }} onChange={(e) => setSearch(e.target.value)}
+                    variant="outlined" style={{ marginBottom: 10, width: "100%", fontFamily: "Montserrat", }} onChange={(e) => setSearch(e.target.value)}
                 />
 
 
@@ -113,19 +113,19 @@ function CoinsTable() {
                         // if no loading then show table
 
                         <Table aria-label="simple table">
-                            <TableHead style={{ backgroundColor: "#3dbfb0" }}>
-                                <TableRow>
-
-                                    {/* mapping table */}
-
-
+                            <TableHead style={{ backgroundColor: "#242121" }}>
+                                <TableRow style={{ alignItems: "left" }}>
                                     {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                                         <TableCell
-                                            style={{
-                                                color: "black", fontWeight: "700", fontFamily: "Montserrat",
-                                            }}
                                             key={head}
                                             align={head === "Coins" ? "" : "right"}
+                                            style={{
+                                                color: "white",
+                                                fontWeight: "700",
+                                                fontFamily: "Montserrat",
+                                                marginLeft:"20px",
+                                                textAlign: head === "Coin" ? "left" : "right", // Add this line
+                                            }}
                                         >
                                             {head}
                                         </TableCell>
@@ -163,7 +163,7 @@ function CoinsTable() {
                                                     <img
                                                         src={row?.image}
                                                         alt={row.name}
-                                                        height="50"
+                                                        height="40"
                                                         style={{ marginBottom: 10 }}
                                                     />
                                                     <div
@@ -172,7 +172,7 @@ function CoinsTable() {
                                                         <span
                                                             style={{
                                                                 textTransform: "uppercase",
-                                                                fontSize: 22,
+                                                                fontSize: 15,
                                                             }}
                                                         >
                                                             {row.symbol}
